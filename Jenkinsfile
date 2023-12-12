@@ -20,8 +20,7 @@ pipeline {
                 sh "chkconfig httpd on"
                 sh "chmod -R 777 /var"
                 sh "cd /var/www/html"
-                sh "ls -la /root/.jenkins/workspace/project"  // Print the contents of the workspace for debugging
-                sh "cp index.html ."
+                sh "mv /root/.jenkins/workspace/project/index.html ."
             }
         }
     }
