@@ -1,12 +1,17 @@
 pipeline {
     agent any 
     stages {
-        stage ("clonerepo") {
+        stage('Clean Workspace') {
             steps {
-                sh "git clone https://github.com/akashrathod7895/webhook-repo1.git"
-                
-                
+                deleteDir()
             }
+        }
+
+        stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/akashrathod7895/webhook-repo1.git']]])
+            }
+        }
             
         }
         stage ("copyindexfile") {
