@@ -19,8 +19,7 @@ pipeline {
                 sh "service httpd start"
                 sh "chkconfig httpd on"
                 sh "chmod -R 777 /var"
-                sh "cd /var/www/html"
-                sh "mv /root/.jenkins/workspace/project/index.html ."
+               sh "cp /root/.jenkins/workspace/project/index.html /var/www/html"
             }
         }
     }
