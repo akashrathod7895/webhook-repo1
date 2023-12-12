@@ -18,8 +18,8 @@ pipeline {
                 sh "yum install httpd -y"
                 sh "service httpd start"
                 sh "chkconfig httpd on"
+             sh "cp /root/.jenkins/workspace/project/index.html /var/www/html"
                 sh "chmod -R 777 /var"
-               sh "cp /root/.jenkins/workspace/project/index.html /var/www/html"
             }
         }
     }
